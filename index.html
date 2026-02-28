@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>John Doe — Engineer & Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e0f0f;
+      --surface: #161818;
+      --border: #252727;
+      --text: #e2e0db;
+      --muted: #7a7a76;
+      --accent: #c8f06e;
+      --accent2: #6ef0c8;
+      --accent3: #f0b96e;
+      --accent4: #f06e9a;
+      --mono: 'IBM Plex Mono', monospace;
+      --serif: 'Lora', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(14,15,15,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 34px; height: 34px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: var(--mono);
+      font-weight: 600;
+      font-size: 13px;
+      color: #0e0f0f;
+      flex-shrink: 0;
+    }
+    .nav-logo-text {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem) clamp(2rem, 5vw, 4rem);
+      max-width: 860px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      line-height: 1.1;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1.4rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 2.2rem;
+      line-height: 1.8;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .hero-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 0;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    /* ── MAIN FEED ── */
+    main {
+      padding: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 5vw, 4rem) 4rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .section-head {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .feed {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .card {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 1.4rem;
+      padding: 1.6rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s;
+      position: relative;
+    }
+    .card:hover .card-title { color: var(--accent); }
+
+    .card-thumb {
+      width: 130px;
+      height: 90px;
+      border-radius: 4px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .card-body {}
+    .card-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.03em;
+    }
+    .card-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+      transition: color 0.2s;
+    }
+    .card-sub {
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+      line-height: 1.5;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+      font-weight: 500;
+    }
+    .tag-green  { background: rgba(200,240,110,0.12); color: #c8f06e; }
+    .tag-teal   { background: rgba(110,240,200,0.12); color: #6ef0c8; }
+    .tag-orange { background: rgba(240,185,110,0.12); color: #f0b96e; }
+    .tag-pink   { background: rgba(240,110,154,0.12); color: #f06e9a; }
+    .tag-blue   { background: rgba(110,180,240,0.12); color: #6eb4f0; }
+    .tag-purple { background: rgba(180,110,240,0.12); color: #b46ef0; }
+
+    /* ── SIDEBAR ── */
+    aside {
+      padding: clamp(1.5rem, 4vw, 3rem) 1.8rem 4rem;
+      position: sticky;
+      top: 60px;
+      align-self: start;
+      max-height: calc(100vh - 60px);
+      overflow-y: auto;
+    }
+
+    .sidebar-section {
+      margin-bottom: 2.4rem;
+    }
+    .sidebar-head {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .avatar {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: var(--mono);
+      font-weight: 600;
+      font-size: 16px;
+      color: #0e0f0f;
+    }
+    .about-name {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    .about-bio {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 4px 10px;
+      border: 1px solid rgba(200,240,110,0.3);
+      border-radius: 2px;
+      color: var(--accent);
+      margin-top: 0.3rem;
+    }
+    .status-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .skill-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .skill-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .skill-name {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .skill-bar {
+      width: 80px;
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .skill-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .link-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .link-item:hover { color: var(--accent2); }
+    .link-icon {
+      font-family: var(--mono);
+      font-size: 10px;
+      width: 22px;
+      text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.6rem clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* ── ANIMATIONS ── */
+    .card { animation: fadeUp 0.4s ease both; }
+    .card:nth-child(1) { animation-delay: 0.05s; }
+    .card:nth-child(2) { animation-delay: 0.1s; }
+    .card:nth-child(3) { animation-delay: 0.15s; }
+    .card:nth-child(4) { animation-delay: 0.2s; }
+    .card:nth-child(5) { animation-delay: 0.25s; }
+    .card:nth-child(6) { animation-delay: 0.3s; }
+    .card:nth-child(7) { animation-delay: 0.35s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 780px) {
+      .page-wrap { grid-template-columns: 1fr; }
+      aside { display: none; }
+      .card { grid-template-columns: 90px 1fr; }
+      .card-thumb { width: 90px; height: 66px; }
+      nav .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">JD</div>
+    <span class="nav-logo-text">John Doe</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#projects">⚙ Projects</a></li>
+    <li><a href="#writing">✏ Writing</a></li>
+    <li><a href="#about">👤 About</a></li>
+    <li><a href="mailto:john@johndoe.dev">✉ Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero" style="max-width:100%; padding-left: clamp(1.5rem,5vw,4rem);">
+  <p class="hero-eyebrow">✦ Engineer & Tinkerer</p>
+  <h1>Building systems,<br/><em>learning loudly.</em></h1>
+  <p class="hero-desc">
+    Fresh CS grad from UT Austin. I write about embedded systems, open-source software,
+    side projects, and the occasional debugging war story. Currently looking for my first full-time role.
+  </p>
+  <div class="hero-tags">
+    <span class="hero-tag">C / C++</span>
+    <span class="hero-tag">Embedded Linux</span>
+    <span class="hero-tag">Rust</span>
+    <span class="hero-tag">RTOS</span>
+    <span class="hero-tag">Systems Programming</span>
+    <span class="hero-tag">Open Source</span>
+  </div>
+</div>
+
+<!-- PAGE WRAP -->
+<div class="page-wrap">
+
+  <!-- MAIN FEED -->
+  <main>
+    <p class="section-head" id="projects">All posts — projects + writing</p>
+
+    <div class="feed">
+
+      <a href="#" class="card">
+        <div class="card-thumb">🦀</div>
+        <div class="card-body">
+          <div class="card-date">Jan 28, 2025</div>
+          <div class="card-title">Writing a Bare-Metal USB Driver in Rust</div>
+          <div class="card-sub">Tackling USB enumeration on an STM32 without any HAL — just registers and pain.</div>
+          <div class="card-tags">
+            <span class="tag tag-orange">#rust</span>
+            <span class="tag tag-blue">#embedded</span>
+            <span class="tag tag-teal">#usb</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="card">
+        <div class="card-thumb">🐧</div>
+        <div class="card-body">
+          <div class="card-date">Jan 10, 2025</div>
+          <div class="card-title">My First Linux Kernel Patch — Accepted!</div>
+          <div class="card-sub">How I found a small but real bug in a staging driver, wrote the fix, and survived the mailing list.</div>
+          <div class="card-tags">
+            <span class="tag tag-green">#linux</span>
+            <span class="tag tag-blue">#kernel</span>
+            <span class="tag tag-teal">#open-source</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="card">
+        <div class="card-thumb">📡</div>
+        <div class="card-body">
+          <div class="card-date">Dec 18, 2024</div>
+          <div class="card-title">LoRa-Based Campus Sensor Network — Capstone Project</div>
+          <div class="card-sub">Designed and deployed a low-power mesh sensor grid across 4 buildings for my final year project.</div>
+          <div class="card-tags">
+            <span class="tag tag-orange">#hardware</span>
+            <span class="tag tag-pink">#iot</span>
+            <span class="tag tag-green">#lora</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="card">
+        <div class="card-thumb">⚡</div>
+        <div class="card-body">
+          <div class="card-date">Nov 30, 2024</div>
+          <div class="card-title">FreeRTOS Task Scheduling — A Visual Deep Dive</div>
+          <div class="card-sub">Animating preemption, priority inversion, and mutexes to actually understand what's happening.</div>
+          <div class="card-tags">
+            <span class="tag tag-blue">#rtos</span>
+            <span class="tag tag-purple">#freertos</span>
+            <span class="tag tag-teal">#concurrency</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="card">
+        <div class="card-thumb">🔬</div>
+        <div class="card-body">
+          <div class="card-date">Nov 5, 2024</div>
+          <div class="card-title">Reverse Engineering a $12 Smart Plug</div>
+          <div class="card-sub">UART console, firmware extraction, and eventually running my own code on it. Weekend project gone deep.</div>
+          <div class="card-tags">
+            <span class="tag tag-pink">#reverse-engineering</span>
+            <span class="tag tag-orange">#hardware</span>
+            <span class="tag tag-green">#uart</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="card">
+        <div class="card-thumb">🧠</div>
+        <div class="card-body">
+          <div class="card-date">Oct 14, 2024</div>
+          <div class="card-title">How I Learned to Stop Fearing Pointers</div>
+          <div class="card-sub">A mental model for C pointers that finally made everything click, after two years of confusion.</div>
+          <div class="card-tags">
+            <span class="tag tag-teal">#c</span>
+            <span class="tag tag-blue">#learning</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="card">
+        <div class="card-thumb">🛠️</div>
+        <div class="card-body">
+          <div class="card-date">Sep 22, 2024</div>
+          <div class="card-title">Building a Tiny CLI Task Manager in C</div>
+          <div class="card-sub">500 lines of pure C, ncurses UI, local file persistence. Because sometimes you just want to build something from scratch.</div>
+          <div class="card-tags">
+            <span class="tag tag-teal">#c</span>
+            <span class="tag tag-green">#cli</span>
+            <span class="tag tag-orange">#tools</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside>
+
+    <div class="sidebar-section">
+      <div class="sidebar-head">About</div>
+      <div class="about-card">
+        <div class="avatar">JD</div>
+        <div class="about-name">John Doe</div>
+        <div class="about-bio">
+          CS grad from UT Austin ('24). Into embedded systems, low-level Linux, and tinkering with hardware.
+          Based in Austin, TX — open to remote.
+        </div>
+        <span class="status-badge">
+          <span class="status-dot"></span>
+          Open to opportunities
+        </span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-head">Skills</div>
+      <div class="skill-list">
+        <div class="skill-item">
+          <span class="skill-name">C / C++</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Linux Kernel</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Rust</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:55%; background: var(--accent3)"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">RTOS / FreeRTOS</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:70%; background: var(--accent2)"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Python</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%; background: var(--accent4)"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Git / Open Source</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-head">Links</div>
+      <div class="link-list">
+        <a href="#" class="link-item">
+          <span class="link-icon">gh</span>
+          github.com/johndoe
+        </a>
+        <a href="#" class="link-item">
+          <span class="link-icon">li</span>
+          linkedin.com/in/johndoe
+        </a>
+        <a href="#" class="link-item">
+          <span class="link-icon">@</span>
+          john@johndoe.dev
+        </a>
+        <a href="#" class="link-item">
+          <span class="link-icon">✦</span>
+          Resume (PDF)
+        </a>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-head">Tags</div>
+      <div class="card-tags" style="gap: 0.4rem;">
+        <span class="tag tag-green">#linux</span>
+        <span class="tag tag-blue">#embedded</span>
+        <span class="tag tag-orange">#rust</span>
+        <span class="tag tag-teal">#open-source</span>
+        <span class="tag tag-pink">#hardware</span>
+        <span class="tag tag-purple">#rtos</span>
+        <span class="tag tag-blue">#c</span>
+        <span class="tag tag-green">#kernel</span>
+        <span class="tag tag-orange">#iot</span>
+        <span class="tag tag-teal">#tools</span>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>John Doe, 2024–25</span>
+  <span>Built with HTML, caffeine, and curiosity</span>
+</footer>
+
+</body>
+</html>
