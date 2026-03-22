@@ -85,26 +85,39 @@
 
     <!-- Hero -->
     <section id="home" class="hero">
-      <div class="hero-content">
-        <p class="hero-greeting reveal-up">
-          <span class="mono-label">$ whoami</span>
-        </p>
-        <h1 class="hero-name">
-          <span class="name-line reveal-up" style="--delay:0.05s">Arindam</span>
-          <span class="name-line name-dim reveal-up" style="--delay:0.15s">Hore.</span>
-        </h1>
-        <div class="hero-subtitle reveal-up" style="--delay:0.25s">
-          <span class="subtitle-static">CS Student &amp;&nbsp;</span>
-          <span class="typing-text" id="typingText"></span><span class="cursor" id="cursor">|</span>
+      <div class="hero-inner">
+
+        <!-- Left: text content -->
+        <div class="hero-content">
+          <p class="hero-greeting reveal-up">
+            <span class="mono-label">$ whoami</span>
+          </p>
+          <h1 class="hero-name">
+            <span class="name-line reveal-up" style="--delay:0.05s">Arindam</span>
+            <span class="name-line name-dim reveal-up" style="--delay:0.15s">Hore.</span>
+          </h1>
+          <div class="hero-subtitle reveal-up" style="--delay:0.25s">
+            <span class="subtitle-static">CS Student &amp;&nbsp;</span>
+            <span class="typing-text" id="typingText"></span><span class="cursor" id="cursor">|</span>
+          </div>
+          <p class="hero-value reveal-up" style="--delay:0.35s">
+            I build things close to the metal —<br>allocators, shells, servers, and everything in between.
+          </p>
+          <div class="hero-cta reveal-up" style="--delay:0.45s">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact"  class="btn btn-secondary">Get in Touch</a>
+          </div>
         </div>
-        <p class="hero-value reveal-up" style="--delay:0.35s">
-          I build things close to the metal —<br>allocators, shells, servers, and everything in between.
-        </p>
-        <div class="hero-cta reveal-up" style="--delay:0.45s">
-          <a href="#projects" class="btn btn-primary">View Projects</a>
-          <a href="#contact"  class="btn btn-secondary">Get in Touch</a>
+
+        <!-- Right: profile photo -->
+        <div class="hero-photo-wrap reveal-up" style="--delay:0.2s">
+          <div class="hero-photo-ring">
+            <img src="avatar.png" alt="Arindam Hore" class="hero-photo" />
+          </div>
         </div>
+
       </div>
+
       <div class="hero-scroll">
         <span class="mono-label">scroll</span>
         <div class="scroll-line"></div>
@@ -139,9 +152,6 @@
             </p>
           </div>
           <div class="about-stats fade-in">
-            <div class="about-avatar-wrap">
-              <img src="avatar.png" alt="Arindam Hore" class="about-avatar" />
-            </div>
             <div class="stat-card">
               <span class="stat-num accent-text">1+</span>
               <span class="stat-label">year of systems programming</span>
