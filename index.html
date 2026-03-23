@@ -29,11 +29,12 @@
         <span class="logo-bracket">}</span>
       </a>
       <ul class="nav-links">
-        <li><a href="#about"      class="nav-link">about</a></li>
-        <li><a href="#skills"     class="nav-link">skills</a></li>
-        <li><a href="#projects"   class="nav-link">projects</a></li>
-        <li><a href="#experience" class="nav-link">experience</a></li>
-        <li><a href="#contact"    class="nav-link">contact</a></li>
+        <li><a href="#about"        class="nav-link">about</a></li>
+        <li><a href="#skills"       class="nav-link">skills</a></li>
+        <li><a href="#projects"     class="nav-link">projects</a></li>
+        <li><a href="#experience"   class="nav-link">experience</a></li>
+        <li><a href="#certificates" class="nav-link">certs</a></li>
+        <li><a href="#contact"      class="nav-link">contact</a></li>
       </ul>
       <a href="resume.pdf" download class="nav-resume-btn" title="Download Resume">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -73,11 +74,12 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <ul>
-      <li><a href="#about"      class="mobile-link">about</a></li>
-      <li><a href="#skills"     class="mobile-link">skills</a></li>
-      <li><a href="#projects"   class="mobile-link">projects</a></li>
-      <li><a href="#experience" class="mobile-link">experience</a></li>
-      <li><a href="#contact"    class="mobile-link">contact</a></li>
+      <li><a href="#about"        class="mobile-link">about</a></li>
+      <li><a href="#skills"       class="mobile-link">skills</a></li>
+      <li><a href="#projects"     class="mobile-link">projects</a></li>
+      <li><a href="#experience"   class="mobile-link">experience</a></li>
+      <li><a href="#certificates" class="mobile-link">certs</a></li>
+      <li><a href="#contact"      class="mobile-link">contact</a></li>
     </ul>
   </div>
 
@@ -456,11 +458,102 @@
       </div>
     </section>
 
+    <!-- Certificates -->
+    <section id="certificates" class="section certs-section">
+      <div class="section-container">
+        <div class="section-header fade-in">
+          <span class="section-tag mono-label">05 / certificates</span>
+          <h2 class="section-title">Coursework &amp; Certifications</h2>
+        </div>
+
+        <div class="certs-grid">
+
+          <!-- MIT 6.824 -->
+          <div class="cert-card fade-in">
+            <div class="cert-badge">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+            </div>
+            <div class="cert-body">
+              <h3 class="cert-title">Distributed Systems</h3>
+              <p class="cert-issuer">MIT 6.824</p>
+              <p class="cert-desc">Raft consensus, fault-tolerant key-value stores, MapReduce, and distributed transactions. The one course that makes you question everything you thought you knew about computers.</p>
+            </div>
+            <div class="cert-footer">
+              <span class="cert-date mono-label">Oct 2025</span>
+              <span class="cert-badge-tag">Self-paced</span>
+            </div>
+          </div>
+
+          <!-- University of Colorado -->
+          <div class="cert-card fade-in">
+            <div class="cert-badge">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <div class="cert-body">
+              <h3 class="cert-title">Computer Communications</h3>
+              <p class="cert-issuer">University of Colorado — Coursera Specialization</p>
+              <p class="cert-desc">TCP/IP protocol stack, socket programming, network layers, congestion control, and application-layer protocols. The theory behind what I implement in C.</p>
+            </div>
+            <div class="cert-footer">
+              <span class="cert-date mono-label">Mar 2025</span>
+              <span class="cert-badge-tag">Specialization</span>
+            </div>
+          </div>
+
+          <!-- NPTEL IIT Bombay -->
+          <div class="cert-card fade-in">
+            <div class="cert-badge">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <div class="cert-body">
+              <h3 class="cert-title">Operating Systems</h3>
+              <p class="cert-issuer">IIT Bombay — NPTEL</p>
+              <p class="cert-desc">Process management, scheduling, memory management, file systems, and synchronization. Rigorous OS theory from one of India's premier technical institutions.</p>
+            </div>
+            <div class="cert-footer">
+              <span class="cert-date mono-label">Jan 2025</span>
+              <span class="cert-badge-tag">NPTEL</span>
+            </div>
+          </div>
+
+          <!-- Princeton Algorithms -->
+          <div class="cert-card fade-in">
+            <div class="cert-badge">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div class="cert-body">
+              <h3 class="cert-title">Algorithms, Part I &amp; II</h3>
+              <p class="cert-issuer">Princeton University — Coursera</p>
+              <p class="cert-desc">Sorting, graph algorithms, dynamic programming, string processing, and NP-completeness. Sedgewick's two-part series — the gold standard for algorithmic thinking.</p>
+            </div>
+            <div class="cert-footer">
+              <span class="cert-date mono-label">Sep 2024</span>
+              <span class="cert-badge-tag">2-Part Series</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- Contact -->
     <section id="contact" class="section contact-section">
       <div class="section-container">
         <div class="contact-inner fade-in">
-          <span class="section-tag mono-label">05 / contact</span>
+          <span class="section-tag mono-label">06 / contact</span>
           <h2 class="section-title contact-title">Let's talk.</h2>
           <p class="contact-sub">
             Open to research collaborations, internship opportunities, and any conversation
