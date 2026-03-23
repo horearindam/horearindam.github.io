@@ -33,6 +33,7 @@
         <li><a href="#skills"       class="nav-link">skills</a></li>
         <li><a href="#projects"     class="nav-link">projects</a></li>
         <li><a href="#experience"   class="nav-link">experience</a></li>
+        <li><a href="#opensource"   class="nav-link">oss</a></li>
         <li><a href="#certificates" class="nav-link">certs</a></li>
         <li><a href="#contact"      class="nav-link">contact</a></li>
       </ul>
@@ -78,6 +79,7 @@
       <li><a href="#skills"       class="mobile-link">skills</a></li>
       <li><a href="#projects"     class="mobile-link">projects</a></li>
       <li><a href="#experience"   class="mobile-link">experience</a></li>
+      <li><a href="#opensource"   class="mobile-link">open source</a></li>
       <li><a href="#certificates" class="mobile-link">certs</a></li>
       <li><a href="#contact"      class="mobile-link">contact</a></li>
     </ul>
@@ -458,11 +460,115 @@
       </div>
     </section>
 
+    <!-- Open Source Contributions -->
+    <section id="opensource" class="section oss-section">
+      <div class="section-container">
+
+        <div class="section-header fade-in">
+          <span class="section-tag mono-label">05 / open source</span>
+          <h2 class="section-title">Open Source</h2>
+        </div>
+
+        <div class="oss-layout fade-in">
+
+          <!-- Main featured contribution -->
+          <div class="oss-featured">
+            <div class="oss-project-header">
+              <div class="oss-project-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                </svg>
+              </div>
+              <div class="oss-project-meta">
+                <h3 class="oss-project-name">LibreOffice</h3>
+                <p class="oss-project-org accent-text">The Document Foundation</p>
+              </div>
+              <a href="https://www.libreoffice.org" target="_blank" rel="noopener" class="oss-ext-link" title="Visit project">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+              </a>
+            </div>
+
+            <p class="oss-summary">
+              Contributed to a <strong>10M+ LOC C++ codebase</strong> under multi-stage CI and Gerrit
+              review cycles alongside senior maintainers. Focused on modernizing safety-critical
+              SAL/UNO internals and resolving defects in Writer and Calc.
+            </p>
+
+            <div class="oss-contributions">
+              <div class="oss-contrib-item">
+                <span class="oss-contrib-dot"></span>
+                <p>Modernized SAL/UNO C++ internals using safer enums, <code>OUString</code> corrections, and type-safe refactors across core modules.</p>
+              </div>
+              <div class="oss-contrib-item">
+                <span class="oss-contrib-dot"></span>
+                <p>Resolved critical Writer and Calc defects — eliminated unsafe casts, corrected <code>sal_uLong</code> misuse, and tightened string/memory handling in performance-sensitive paths.</p>
+              </div>
+              <div class="oss-contrib-item">
+                <span class="oss-contrib-dot"></span>
+                <p>Delivered <strong>12+ patches</strong> merged via Gerrit, each passing multi-stage CI including build matrix, unit, and integration test gates.</p>
+              </div>
+            </div>
+
+            <div class="oss-footer">
+              <div class="oss-tags">
+                <span class="stack-tag">C++20</span>
+                <span class="stack-tag">Gerrit</span>
+                <span class="stack-tag">SAL / UNO</span>
+                <span class="stack-tag">CI/CD</span>
+                <span class="stack-tag">Code Review</span>
+              </div>
+              <span class="oss-period mono-label">Sep 2025 — Nov 2025</span>
+            </div>
+          </div>
+
+          <!-- Side stats panel -->
+          <div class="oss-stats-panel">
+
+            <div class="oss-stat">
+              <span class="oss-stat-num accent-text">12+</span>
+              <span class="oss-stat-label">patches merged</span>
+            </div>
+
+            <div class="oss-stat">
+              <span class="oss-stat-num accent-text">10M+</span>
+              <span class="oss-stat-label">lines of codebase</span>
+            </div>
+
+            <div class="oss-stat">
+              <span class="oss-stat-num accent-text">C++</span>
+              <span class="oss-stat-label">primary language</span>
+            </div>
+
+            <div class="oss-stat">
+              <span class="oss-stat-num accent-text">∞</span>
+              <span class="oss-stat-label">code review rounds</span>
+            </div>
+
+            <div class="oss-callout">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+              <p>Real-world production codebase. Multi-stage CI. Senior maintainer review. The kind of contribution that actually shows up on a commit graph.</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- Certificates -->
     <section id="certificates" class="section certs-section">
       <div class="section-container">
         <div class="section-header fade-in">
-          <span class="section-tag mono-label">05 / certificates</span>
+          <span class="section-tag mono-label">06 / certificates</span>
           <h2 class="section-title">Coursework &amp; Certifications</h2>
         </div>
 
@@ -553,7 +659,7 @@
     <section id="contact" class="section contact-section">
       <div class="section-container">
         <div class="contact-inner fade-in">
-          <span class="section-tag mono-label">06 / contact</span>
+          <span class="section-tag mono-label">07 / contact</span>
           <h2 class="section-title contact-title">Let's talk.</h2>
           <p class="contact-sub">
             Open to research collaborations, internship opportunities, and any conversation
